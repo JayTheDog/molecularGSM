@@ -347,7 +347,7 @@ int ICoord::bmatp_to_U()
   //    printf(" %8.5f",G[i1*len+j]);
   //  printf("\n");
 #endif
-    lowev++;
+//  lowev++;
   }
   if (lowev>0)
     printf(" lowev: %i",lowev);

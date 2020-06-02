@@ -25,12 +25,12 @@ F95ROOT = $(MKLROOT)
 #LINKERFLAGS =  -L$(MKLROOT)/lib/em64t $(F95ROOT)/lib/em64t/libmkl_lapack95_lp64.a -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lpthread -lm
 #Intel parallel openmp (only w/icpc compiler)
 #LINKERFLAGS =  -L$(MKLROOT)/lib/em64t -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -lpthread -lm
-LINKERFLAGS =  -L$(MKLROOT)/lib/intel64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -lpthread -lm
+LINKERFLAGS =  -static -L$(MKLROOT)/lib/intel64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -lpthread -lm
 # MAC OS linkers
 #LINKERFLAGS = -lm -framework Accelerate
 
 
-OFLAGS =  # optimization
+OFLAGS =  -axAVX -xHOST -fast # optimization
 
 
 

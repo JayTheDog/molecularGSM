@@ -3,7 +3,8 @@ using namespace std;
 #include "constants.h"
 
 //#define MOPAC_LEVEL "PM6 NOSYM 1SCF GRADIENTS UHF TRIPLET CHARGE=1"
-#define MOPAC_LEVEL "PM6 NOSYM 1SCF GRADIENTS UHF AUX "
+//#define MOPAC_LEVEL "PM6-DH2 NOSYM 1SCF GRADIENTS UHF AUX "
+#define MOPAC_LEVEL "PM7 NOSYM 1SCF GRADIENTS UHF AUX "
 //#define MOPAC_LEVEL "PM6 NOSYM 1SCF GRADIENTS UHF AUX CHARGE=1 "
 
 void Mopac::write_ic_input(ofstream& inpfile, int anum, ICoord ic){
