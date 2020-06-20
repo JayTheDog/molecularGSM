@@ -1,0 +1,30 @@
+language: python
+
+os: linux
+dist: bionic
+python: 3.8
+
+addons:
+  apt:
+    sources:
+    - sourceline: 'deb https://apt.repos.intel.com/oneapi all main'
+      key_url: 'https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2023.PUB'
+    packages:
+    - intel-oneapi-icc
+    - intel-oneapi-mkl
+    - intel-oneapi-mkl-devel
+    - intel-oneapi-openmp
+    - python-pip
+
+env:
+- CXX=icpc
+
+before_install:
+- source /opt/intel/inteloneapi/setvars.sh
+
+install:
+- pip3 install meson ninja
+
+script:
+- meson build --buildtype=release --prefix=$PWD/install
+- OMP_NUM_THREADS=2 ninja -C build install

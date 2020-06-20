@@ -1,0 +1,13 @@
+option(
+  'la_backend',
+  type: 'combo',
+  value: 'mkl',
+  choices: ['mkl', 'mkl-rt'],
+  description : 'Linear algebra backend for program.',
+)
+option(
+  'openmp',
+  type: 'boolean',
+  value: true,
+  description: 'use OpenMP parallelisation',
+)

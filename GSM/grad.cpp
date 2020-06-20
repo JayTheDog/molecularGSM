@@ -370,7 +370,7 @@ int Gradient::read_nstates()
 
   string line;
   int nstates0 = 0;
-  bool success = getline(infile, line);
+  bool success =!! getline(infile, line);
   nstates0 = atoi(line.c_str());
 
   infile.close();
@@ -418,7 +418,7 @@ int Gradient::read_molpro_init(string* &hf_lines)
   bool success=true;
   while (!infile.eof())
   {
-    success=getline(infile, line);
+    success=!!getline(infile, line);
     if (success)
       hf_lines0[nhf++] = line;
   }
@@ -455,7 +455,7 @@ void Gradient::read_molpro_settings(int& nstates0, int& nclosed, int& nocc, int&
   int nf = 0;
   while (!infile.eof())
   {
-    success=getline(infile, line);
+    success=!!getline(infile, line);
     vector<string> tok_line = StringTools::tokenize(line, " ");
     //cout << "RR0: " << line << endl; fflush(stdout);
 
@@ -676,7 +676,7 @@ int Gradient::force_init(string ffile)
   int nf = 0;
   while (!infile.eof())
   {
-    success=getline(infile, line);
+    success=!!getline(infile, line);
     vector<string> tok_line = StringTools::tokenize(line, " ");
     if (tok_line.size()>3)
     {
